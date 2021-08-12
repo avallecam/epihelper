@@ -18,42 +18,63 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/epihelper)](https://CRAN.R-project.org/package=epihelper)
+[![Codecov test coverage](https://codecov.io/gh/avallecam/epihelper/branch/master/graph/badge.svg)](https://codecov.io/gh/avallecam/epihelper?branch=master)
 <!-- badges: end -->
 
-The goal of epihelper is to ...
+The goal of epihelper is to provide a miscelanea of useful custom functions and related reproducible examples 
 
 ## Installation
 
-You can install the released version of epihelper from [CRAN](https://CRAN.R-project.org) with:
+<!-- You can install the released version of epihelper from [CRAN](https://CRAN.R-project.org) with: -->
+
+<!-- ``` r -->
+<!-- install.packages("epihelper") -->
+<!-- ``` -->
+
+And the development version from [GitHub](https://github.com/avallecam/epihelper) with:
 
 ``` r
-install.packages("epihelper")
+if(!require("remotes")) install.packages("remotes")
+remotes::install_github("avallecam/epihelper")
 ```
 
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example,eval=FALSE}
 library(epihelper)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+### initial helpers
 
-```{r cars}
-summary(cars)
-```
+- `adorn_ame`: adorn a [`tabyl`](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#tabyl---a-better-version-of-table) with totals on margins, percentages and N on values in only one function! 
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+- `print_inf`: make a quick(er) `print(n=Inf)`
 
-You can also embed plots, for example:
+- `read_lastfile`: read the last file in a folder (ideal for workflows with daily inputs and updates)
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
+### spatial data management
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+- `read_gpx`: read GPX extension formats
+
+- `st_coordinates_tidy`: a tidy alternative to `sf::st_coordinates`. it retrieve coordinates within the original sf/data.frame object.
+
+- `sf_as_ppp`: integrates point geometry dataset and a boundary to create a ppp for spatstat analysis. [clink here for more information](https://github.com/r-spatial/sf/issues/1233).
+
+-  `tibble_as_raster`: transform a x,y,z tibble to a raster. 
+
+### movement data management
+
+- `sum_range_h`: custom function to calculate amount of hours between to reported times
+
+- `get_distance_m`: generates a distance output between two set of points within a tibble and flexible with `dplyr::group_by` and `purrr::pmap` 
+
+
+## Main functionalities
+
+Check the [reference page](https://avallecam.github.io/epihelper/reference/index.html) for examples.
 
 ## Code of Conduct
 
