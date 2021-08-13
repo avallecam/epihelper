@@ -90,7 +90,7 @@ example("get_distance_m")
 ## Main functionalities
 
 Check the [reference
-page](https://avallecam.github.io/avallecam/reference/index.html) for
+page](https://avallecam.github.io/epihelper/reference/index.html) for
 examples.
 
 ## Code of Conduct
