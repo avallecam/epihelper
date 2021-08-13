@@ -52,6 +52,11 @@ library(epihelper)
 -   `read_lastfile`: read the last file in a folder (ideal for workflows
     with daily inputs and updates)
 
+``` r
+example("adorn_ame")
+example("print_inf")
+```
+
 ### spatial data management
 
 -   `read_gpx`: read GPX extension formats
@@ -65,6 +70,10 @@ library(epihelper)
 
 -   `tibble_as_raster`: transform a x,y,z tibble to a raster.
 
+``` r
+example("st_coordinates_tidy")
+```
+
 ### movement data management
 
 -   `sum_range_h`: custom function to calculate amount of hours between
@@ -74,10 +83,14 @@ library(epihelper)
     points within a tibble and flexible with `dplyr::group_by` and
     `purrr::pmap`
 
+``` r
+example("get_distance_m")
+```
+
 ## Main functionalities
 
 Check the [reference
-page](https://avallecam.github.io/epihelper/reference/index.html) for
+page](https://avallecam.github.io/avallecam/reference/index.html) for
 examples.
 
 ## Code of Conduct
