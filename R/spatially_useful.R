@@ -19,7 +19,7 @@
 #'
 #' library(tidyverse)
 #' library(sf)
-#' library(avallecam)
+#' library(epihelper)
 #'
 #' sites <- tibble(gpx_point = c("a","b"),
 #'                 longitude = c(-80.144005, -80.109),
@@ -42,7 +42,7 @@
 #'
 #' # data packages
 #' library(tidyverse)
-#' library(avallecam)
+#' library(epihelper)
 #' library(maptools)
 #' library(sf)
 #'
