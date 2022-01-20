@@ -1,0 +1,41 @@
+Package: epihelper
+Title: Miscelanea of Custom Funtions From Epidemiology
+Version: 0.0.0.9000
+Date: 2020-02-18
+Authors@R: 
+    person(given = "Andree",
+           family = "Valle-Campos",
+           role = c("aut", "cre"),
+           email = "avallecam@gmail.com",
+           comment = c(ORCID = "0000-0002-7779-481X"))
+Description: Miscelanea of functions that I developed 
+    to solve common epidemiological problems, that could
+    be useful for different porpuses.
+License: MIT + file LICENSE
+Suggests: 
+    testthat (>= 3.0.0),
+    covr,
+    geosphere,
+    maptools,
+    raster,
+    sf,
+    spatstat,
+    testthat,
+    readxl
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+URL: https://github.com/avallecam/epihelper
+BugReports: https://github.com/avallecam/epihelper/issues
+Imports: 
+    broom,
+    dplyr,
+    lubridate,
+    rgdal,
+    rlang,
+    stringr,
+    tidyr,
+    tidyverse,
+    readxl

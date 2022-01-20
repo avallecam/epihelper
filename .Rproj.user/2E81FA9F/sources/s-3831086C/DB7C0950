@@ -1,0 +1,26 @@
+{
+    "id": "DB7C0950",
+    "path": "~/0projects/analyze_/epihelper/R/read_gpx.R",
+    "project_path": "R/read_gpx.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642535103127.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "5,2",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1628858274,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1628858274,
+    "read_only": false,
+    "read_only_alternatives": []
+}
