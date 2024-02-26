@@ -2,10 +2,12 @@
 #'
 #' @description read multiline excel files
 #'
-#' @describeIn read_excel_multiline implements the solution proposed by brianwdavis here https://github.com/tidyverse/readxl/issues/486#issuecomment-398224438
+#' @details
+#' This function reads multiline Excel files using the solution proposed by brianwdavis.
 #'
 #' @param filename excel filename
 #' @param row_collapse number of rows to collapse
+#' @param ... additional parameter(s) passed on to readxl::read_excel
 #'
 #' @return tibble with the column names from multiple lines
 #'
@@ -26,6 +28,12 @@
 #' }
 #'
 #' @export read_excel_multiline
+#'
+#' @seealso \code{\link[readxl]{read_excel}}
+#'
+#' @references
+#' See the solution proposed by brianwdavis: https://github.com/tidyverse/readxl/issues/486#issuecomment-398224438
+
 
 read_excel_multiline <- function(filename, row_collapse = 1, ...) {
   nms <- read_excel(filename, range = cell_rows(seq_len(row_collapse)), col_names = F)
