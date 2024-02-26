@@ -50,51 +50,63 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">print_inf</span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
-
-<span class="fu">read_lastfile</span><span class="op">(</span><span class="va">path</span>, <span class="va">pattern</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">print_inf</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_lastfile</span><span class="op">(</span><span class="va">path</span>, <span class="va">pattern</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>objeto input</p></dd>
+
+
 <dt>path</dt>
 <dd><p>path to folder</p></dd>
+
+
 <dt>pattern</dt>
 <dd><p>any specific file extension</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Really (context dependent) important outputs.</p>
+    
+
+<p>Really (context dependent) important outputs.</p>
     </div>
     <div id="functions">
     <h2>Functions</h2>
     
-<ul><li><p><code>print_inf</code>: make a quick(er) <code>print(n=Inf)</code></p></li>
-<li><p><code>read_lastfile</code>: read the last file in a folder (ideal for workflows with daily inputs and updates)</p></li>
+<ul><li><p><code>print_inf()</code>: make a quick(er) <code>print(n=Inf)</code></p></li>
+<li><p><code>read_lastfile()</code>: read the last file in a folder (ideal for workflows with daily inputs and updates)</p></li>
 </ul></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># print_inf ---------------------------------------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">print_inf</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># read_lastfile------------------------------------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># # read last name in a long list of files</span></span>
-<span class="r-in"><span class="co"># lastfile_name &lt;- read_lastfile(path = "../../long_rute_to_folder/", pattern = "*.xlsx") %&gt;% print()</span></span>
-<span class="r-in"><span class="co">#</span></span>
-<span class="r-in"><span class="co"># # read that filename</span></span>
-<span class="r-in"><span class="co"># read_excel(lastfile_name)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># print_inf ---------------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">print_inf</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># read_lastfile------------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># # read last name in a long list of files</span></span></span>
+<span class="r-in"><span><span class="co"># lastfile_name &lt;-</span></span></span>
+<span class="r-in"><span><span class="co">#   read_lastfile(</span></span></span>
+<span class="r-in"><span><span class="co">#     path = "../../long_rute_to_folder/",</span></span></span>
+<span class="r-in"><span><span class="co">#     pattern = "*.xlsx"</span></span></span>
+<span class="r-in"><span><span class="co">#   ) %&gt;%</span></span></span>
+<span class="r-in"><span><span class="co">#   print()</span></span></span>
+<span class="r-in"><span><span class="co">#</span></span></span>
+<span class="r-in"><span><span class="co"># # read that filename</span></span></span>
+<span class="r-in"><span><span class="co"># read_excel(lastfile_name)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -109,7 +121,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

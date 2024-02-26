@@ -50,82 +50,97 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sum_range_h</span><span class="op">(</span><span class="va">dt</span>, <span class="va">lim_sal_h</span>, <span class="va">lim_ret_h</span>, <span class="va">obs_sal_h</span>, <span class="va">obs_ret_h</span>, <span class="va">prefix</span>, <span class="va">suffix</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sum_range_h</span><span class="op">(</span><span class="va">dt</span>, <span class="va">lim_sal_h</span>, <span class="va">lim_ret_h</span>, <span class="va">obs_sal_h</span>, <span class="va">obs_ret_h</span>, <span class="va">prefix</span>, <span class="va">suffix</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>dt</dt>
 <dd><p>data frame</p></dd>
+
+
 <dt>lim_sal_h</dt>
 <dd><p>hora limite de salida</p></dd>
+
+
 <dt>lim_ret_h</dt>
 <dd><p>hora limite de retorno</p></dd>
+
+
 <dt>obs_sal_h</dt>
 <dd><p>hora observada de salida</p></dd>
+
+
 <dt>obs_ret_h</dt>
 <dd><p>hora observada de retorno</p></dd>
+
+
 <dt>prefix</dt>
 <dd><p>prefijo de la nueva variable a crear</p></dd>
+
+
 <dt>suffix</dt>
 <dd><p>sufijo de la nueva variable a crear</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>nueva columna con suma de horas por rango</p>
+    
+
+<p>nueva columna con suma de horas por rango</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">#crear base</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">avallecam</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>obs_sal_hx<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">07</span>,<span class="fl">04</span>,<span class="fl">07</span>,<span class="fl">04</span>,<span class="fl">24</span>,<span class="fl">11</span>,<span class="cn">NA</span>,<span class="fl">20</span>,<span class="fl">22</span>,<span class="fl">04</span><span class="op">)</span>,</span>
-<span class="r-in">               obs_ret_hx<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">08</span>,<span class="fl">13</span>,<span class="fl">13</span>,<span class="fl">21</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="fl">09</span>,<span class="fl">04</span>,<span class="fl">22</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">test</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">#Ejemplo:</span></span>
-<span class="r-in"><span class="co">#Crear 04 rangos de 06 horas cada uno</span></span>
-<span class="r-in"><span class="co">#sumar la cantidad de horas en dicho rango</span></span>
-<span class="r-in"><span class="co">#- 06.00 - 11.59 (06, 07, 08, 09, 10, 11)</span></span>
-<span class="r-in"><span class="co">#- 12.00 - 17.59 (12, 13, 14, 15, 16, 17)</span></span>
-<span class="r-in"><span class="co">#- 18.00 - 23.59 (18, 19, 20, 21, 22, 23)</span></span>
-<span class="r-in"><span class="co">#- 00.00 - 05.59 (24, 01, 02, 03, 04, 05)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">#crear suma por rango</span></span>
-<span class="r-in"><span class="va">test</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">6</span>,</span>
-<span class="r-in">            lim_ret_h <span class="op">=</span> <span class="fl">11</span>,</span>
-<span class="r-in">            obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span>
-<span class="r-in">            obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">12</span>,</span>
-<span class="r-in">           lim_ret_h <span class="op">=</span> <span class="fl">17</span>,</span>
-<span class="r-in">           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span>
-<span class="r-in">           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">18</span>,</span>
-<span class="r-in">           lim_ret_h <span class="op">=</span> <span class="fl">23</span>,</span>
-<span class="r-in">           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span>
-<span class="r-in">           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">00</span>,</span>
-<span class="r-in">           lim_ret_h <span class="op">=</span> <span class="fl">05</span>,</span>
-<span class="r-in">           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span>
-<span class="r-in">           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">#rangos extra</span></span>
-<span class="r-in"><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">19</span>,</span>
-<span class="r-in">           lim_ret_h <span class="op">=</span> <span class="fl">24</span>,</span>
-<span class="r-in">           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span>
-<span class="r-in">           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">17</span>,</span>
-<span class="r-in">           lim_ret_h <span class="op">=</span> <span class="fl">22</span>,</span>
-<span class="r-in">           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span>
-<span class="r-in">           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in">           <span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">#crear base</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">avallecam</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>obs_sal_hx<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">07</span>,<span class="fl">04</span>,<span class="fl">07</span>,<span class="fl">04</span>,<span class="fl">24</span>,<span class="fl">11</span>,<span class="cn">NA</span>,<span class="fl">20</span>,<span class="fl">22</span>,<span class="fl">04</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>               obs_ret_hx<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">08</span>,<span class="fl">13</span>,<span class="fl">13</span>,<span class="fl">21</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="fl">09</span>,<span class="fl">04</span>,<span class="fl">22</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">test</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">#Ejemplo:</span></span></span>
+<span class="r-in"><span><span class="co">#Crear 04 rangos de 06 horas cada uno</span></span></span>
+<span class="r-in"><span><span class="co">#sumar la cantidad de horas en dicho rango</span></span></span>
+<span class="r-in"><span><span class="co">#- 06.00 - 11.59 (06, 07, 08, 09, 10, 11)</span></span></span>
+<span class="r-in"><span><span class="co">#- 12.00 - 17.59 (12, 13, 14, 15, 16, 17)</span></span></span>
+<span class="r-in"><span><span class="co">#- 18.00 - 23.59 (18, 19, 20, 21, 22, 23)</span></span></span>
+<span class="r-in"><span><span class="co">#- 00.00 - 05.59 (24, 01, 02, 03, 04, 05)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">#crear suma por rango</span></span></span>
+<span class="r-in"><span><span class="va">test</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">6</span>,</span></span>
+<span class="r-in"><span>            lim_ret_h <span class="op">=</span> <span class="fl">11</span>,</span></span>
+<span class="r-in"><span>            obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span></span>
+<span class="r-in"><span>            obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">12</span>,</span></span>
+<span class="r-in"><span>           lim_ret_h <span class="op">=</span> <span class="fl">17</span>,</span></span>
+<span class="r-in"><span>           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span></span>
+<span class="r-in"><span>           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">18</span>,</span></span>
+<span class="r-in"><span>           lim_ret_h <span class="op">=</span> <span class="fl">23</span>,</span></span>
+<span class="r-in"><span>           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span></span>
+<span class="r-in"><span>           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">00</span>,</span></span>
+<span class="r-in"><span>           lim_ret_h <span class="op">=</span> <span class="fl">05</span>,</span></span>
+<span class="r-in"><span>           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span></span>
+<span class="r-in"><span>           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">#rangos extra</span></span></span>
+<span class="r-in"><span><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">19</span>,</span></span>
+<span class="r-in"><span>           lim_ret_h <span class="op">=</span> <span class="fl">24</span>,</span></span>
+<span class="r-in"><span>           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span></span>
+<span class="r-in"><span>           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">sum_range_h</span><span class="op">(</span>lim_sal_h <span class="op">=</span> <span class="fl">17</span>,</span></span>
+<span class="r-in"><span>           lim_ret_h <span class="op">=</span> <span class="fl">22</span>,</span></span>
+<span class="r-in"><span>           obs_sal_h <span class="op">=</span> <span class="va">obs_sal_hx</span>,</span></span>
+<span class="r-in"><span>           obs_ret_h <span class="op">=</span> <span class="va">obs_ret_hx</span>,prefix <span class="op">=</span> <span class="st">"mpu_"</span>,suffix <span class="op">=</span> <span class="st">"_h1"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>           <span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -140,7 +155,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
