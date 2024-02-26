@@ -12,7 +12,7 @@ read_gpx <- function(list) {
 
   allgpx <- list
 
-  col <- rgdal::readOGR(dsn = allgpx[1], layer="waypoints",verbose = F) %>%
+  col <- sf::st_read(dsn = allgpx[1], layer="waypoints",verbose = F) %>%
     as.tibble() %>%
     select(time,name,desc,contains("coords")) %>%
     rename("lon"=coords.x1,
@@ -23,9 +23,9 @@ read_gpx <- function(list) {
   # loop
   alltrk <- col[FALSE,]
   for (i in 1:length(allgpx)) {
-    #gpx.wpt <- rgdal::readOGR(dsn = allgpx[i], layer="waypoints")
+    #gpx.wpt <- sf::st_read(dsn = allgpx[i], layer="waypoints")
     #gpx.wpt
-    gpx.trk <- rgdal::readOGR(dsn = allgpx[i], layer="waypoints",verbose = F) %>%
+    gpx.trk <- sf::st_read(dsn = allgpx[i], layer="waypoints",verbose = F) %>%
       as.tibble() %>%
       select(time,name,desc,contains("coords")) %>%
       rename("lon"=coords.x1,
