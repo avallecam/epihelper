@@ -29,13 +29,13 @@ functions ot extract coordinates from a point geometry, convert a sf to ppp and 
 }
 \section{Functions}{
 \itemize{
-\item \code{st_coordinates_tidy}: retrieve coordinates within the original sf/data.frame object. an alternative from \href{https://r-spatial.github.io/sf/reference/st_coordinates.html}{st_coordinates()}
+\item \code{st_coordinates_tidy()}: retrieve coordinates within the original sf/data.frame object. an alternative from \href{https://r-spatial.github.io/sf/reference/st_coordinates.html}{st_coordinates()}
 
-\item \code{sf_as_ppp}: integrates point geometry dataset and a boundary to create a ppp for spatstat analysis. \href{https://github.com/r-spatial/sf/issues/1233}{more}
+\item \code{sf_as_ppp()}: integrates point geometry dataset and a boundary to create a ppp for spatstat analysis. \href{https://github.com/r-spatial/sf/issues/1233}{more}
 
-\item \code{tibble_as_raster}: transform a x,y,z tibble to a raster
+\item \code{tibble_as_raster()}: transform a x,y,z tibble to a raster
+
 }}
-
 \examples{
 
 \dontrun{

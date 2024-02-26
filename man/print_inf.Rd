@@ -24,11 +24,11 @@ benchwork optimizer
 }
 \section{Functions}{
 \itemize{
-\item \code{print_inf}: make a quick(er) \code{print(n=Inf)}
+\item \code{print_inf()}: make a quick(er) \code{print(n=Inf)}
 
-\item \code{read_lastfile}: read the last file in a folder (ideal for workflows with daily inputs and updates)
+\item \code{read_lastfile()}: read the last file in a folder (ideal for workflows with daily inputs and updates)
+
 }}
-
 \examples{
 
 \dontrun{

@@ -43,13 +43,13 @@ Creates total, percetage and N to a tabyl format.
 }
 \section{Functions}{
 \itemize{
-\item \code{adorn_2x2}: DEPRECATED. Creates the usual 2 by 2 output to a tabyl format.
+\item \code{adorn_2x2()}: DEPRECATED. Creates the usual 2 by 2 output to a tabyl format.
 
-\item \code{adorn_ame}: Creates total, percetage and N to a tabyl format.
+\item \code{adorn_ame()}: Creates total, percetage and N to a tabyl format.
 
-\item \code{adorn_tpn}: Creates total, percetage and N to a tabyl format. (same as adorn_ame, but with a formal name)
+\item \code{adorn_tpn()}: Creates total, percetage and N to a tabyl format. (same as adorn_ame, but with a formal name)
+
 }}
-
 \examples{
 
 \dontrun{
