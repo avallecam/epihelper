@@ -14,14 +14,13 @@ Description: Miscelanea of functions that I developed
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0),
-    covr,
     geosphere,
-    maptools,
-    raster,
     sf,
     spatstat,
-    testthat,
-    readxl
+    broom,
+    covr,
+    tibble,
+    rlang
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
@@ -30,13 +29,12 @@ RoxygenNote: 7.3.1
 URL: https://github.com/avallecam/epihelper
 BugReports: https://github.com/avallecam/epihelper/issues
 Imports: 
-    broom,
     dplyr,
     lubridate,
-    rlang,
     stringr,
     tidyr,
     tidyverse,
     readxl,
-    tibble,
-    janitor
+    janitor,
+    raster
+    
