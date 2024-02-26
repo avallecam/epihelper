@@ -2,22 +2,15 @@
 % Please edit documentation in R/spatially_useful.R
 \name{st_coordinates_tidy}
 \alias{st_coordinates_tidy}
-\alias{sf_as_ppp}
 \alias{tibble_as_raster}
 \title{tibble friendly sf, ppp, and raster operations}
 \usage{
 st_coordinates_tidy(sf_object)
 
-sf_as_ppp(sf_geometry_input, sf_polygon_boundary)
-
 tibble_as_raster(data)
 }
 \arguments{
 \item{sf_object}{sf_object input}
-
-\item{sf_geometry_input}{input sf of points}
-
-\item{sf_polygon_boundary}{input sf of box or boundary}
 
 \item{data}{tibble with three column names: x, y, z (for longitud, latitud, and grid value)}
 }
@@ -30,8 +23,6 @@ functions ot extract coordinates from a point geometry, convert a sf to ppp and 
 \section{Functions}{
 \itemize{
 \item \code{st_coordinates_tidy()}: retrieve coordinates within the original sf/data.frame object. an alternative from \href{https://r-spatial.github.io/sf/reference/st_coordinates.html}{st_coordinates()}
-
-\item \code{sf_as_ppp()}: integrates point geometry dataset and a boundary to create a ppp for spatstat analysis. \href{https://github.com/r-spatial/sf/issues/1233}{more}
 
 \item \code{tibble_as_raster()}: transform a x,y,z tibble to a raster
 
@@ -68,7 +59,6 @@ sites_sf \%>\%
 # data packages
 library(tidyverse)
 library(epihelper)
-library(maptools)
 library(sf)
 
 # import sample data
@@ -92,9 +82,14 @@ flu_one_points <- flu_one \%>\%
            crs = 4326,
            agr = "constant")
 
-# re-create a ppp from points and bbox
-sf_as_ppp(sf_geometry_input = flu_one_points,
-          sf_polygon_boundary = flu_one_window) \%>\%
+# /deprecated/ re-create a ppp from points and bbox
+# sf_as_ppp(sf_geometry_input = flu_one_points,
+#           sf_polygon_boundary = flu_one_window) \%>\%
+#   plot()
+
+# /this works/ re-create a ppp from points and bbox
+as.ppp(st_coordinates(flu_one_points),
+       st_bbox(flu_one_window)) \%>\%
   plot()
 
 # tibble_as_raster -------------------------------------
