@@ -41,7 +41,12 @@ mtcars \%>\% as_tibble() \%>\% print_inf()
 # read_lastfile------------------------------------------------
 
 # # read last name in a long list of files
-# lastfile_name <- read_lastfile(path = "../../long_rute_to_folder/", pattern = "*.xlsx") \%>\% print()
+# lastfile_name <-
+#   read_lastfile(
+#     path = "../../long_rute_to_folder/",
+#     pattern = "*.xlsx"
+#   ) \%>\%
+#   print()
 #
 # # read that filename
 # read_excel(lastfile_name)
