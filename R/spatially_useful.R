@@ -43,7 +43,6 @@
 #' # data packages
 #' library(tidyverse)
 #' library(epihelper)
-#' library(maptools)
 #' library(sf)
 #'
 #' # import sample data
@@ -67,9 +66,14 @@
 #'            crs = 4326,
 #'            agr = "constant")
 #'
-#' # re-create a ppp from points and bbox
-#' sf_as_ppp(sf_geometry_input = flu_one_points,
-#'           sf_polygon_boundary = flu_one_window) %>%
+#' # /deprecated/ re-create a ppp from points and bbox
+#' # sf_as_ppp(sf_geometry_input = flu_one_points,
+#' #           sf_polygon_boundary = flu_one_window) %>%
+#' #   plot()
+#'
+#' # /this works/ re-create a ppp from points and bbox
+#' as.ppp(st_coordinates(flu_one_points),
+#'        st_bbox(flu_one_window)) %>%
 #'   plot()
 #'
 #' # tibble_as_raster -------------------------------------
@@ -89,7 +93,6 @@
 #'   }
 #'
 #' @export st_coordinates_tidy
-#' @export sf_as_ppp
 #' @export tibble_as_raster
 
 st_coordinates_tidy <- function(sf_object) {
@@ -103,27 +106,6 @@ st_coordinates_tidy <- function(sf_object) {
         rownames_to_column()
     ) %>%
     select(-rowname)
-}
-
-#' @describeIn st_coordinates_tidy integrates point geometry dataset and a boundary to create a ppp for spatstat analysis. [more](https://github.com/r-spatial/sf/issues/1233)
-#' @param sf_geometry_input input sf of points
-#' @param sf_polygon_boundary input sf of box or boundary
-
-sf_as_ppp <- function(sf_geometry_input,sf_polygon_boundary) {
-  # input
-  house <- sf_geometry_input
-  window_boundary <- sf_polygon_boundary
-  # transform sf to ppp
-  house_g <- house #%>% select(geometry)
-  house_poly <- window_boundary %>% sf::st_buffer(dist = 0) %>% sf::st_union() #needs to be cleaner!
-  p.sp  <- as(house_g, "Spatial")  # Create Spatial* object
-  p.ppp <- as(p.sp, "ppp")      # Create ppp object
-  # add window
-  Window(p.ppp) <- spatstat::as.owin(as(house_poly, "Spatial"))
-  # # determine the binwidth
-  # h_ppp <- bw.scott(p.ppp) #bw.ppl(p.ppp)
-  # h_ppp
-  return(p.ppp)
 }
 
 #' @describeIn st_coordinates_tidy transform a x,y,z tibble to a raster
