@@ -10,6 +10,8 @@ read_excel_multiline(filename, row_collapse = 1, ...)
 \item{filename}{excel filename}
 
 \item{row_collapse}{number of rows to collapse}
+
+\item{...}{additional parameter(s) passed on to readxl::read_excel}
 }
 \value{
 tibble with the column names from multiple lines
@@ -17,11 +19,9 @@ tibble with the column names from multiple lines
 \description{
 read multiline excel files
 }
-\section{Functions}{
-\itemize{
-\item \code{read_excel_multiline}: implements the solution proposed by brianwdavis here https://github.com/tidyverse/readxl/issues/486#issuecomment-398224438
-}}
-
+\details{
+This function reads multiline Excel files using the solution proposed by brianwdavis.
+}
 \examples{
 
 \dontrun{
@@ -36,4 +36,10 @@ read multiline excel files
 
 }
 
+}
+\references{
+See the solution proposed by brianwdavis: https://github.com/tidyverse/readxl/issues/486#issuecomment-398224438
+}
+\seealso{
+\code{\link[readxl]{read_excel}}
 }

@@ -23,9 +23,9 @@ generates a distance (in meters) output between two set of points within a tibbl
 }
 \section{Functions}{
 \itemize{
-\item \code{get_distance_m}: generates a distance (in meters) output between two set of points within a tibble and flexible with group_by and purrr::pmap
-}}
+\item \code{get_distance_m()}: generates a distance (in meters) output between two set of points within a tibble and flexible with group_by and purrr::pmap
 
+}}
 \examples{
 
 \dontrun{
