@@ -33,7 +33,6 @@ Imports:
     broom,
     dplyr,
     lubridate,
-    rgdal,
     rlang,
     stringr,
     tidyr,
