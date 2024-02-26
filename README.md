@@ -11,6 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/epihelper)](https://CRAN.R-project.org/package=epihelper)
 [![Codecov test
 coverage](https://codecov.io/gh/avallecam/epihelper/branch/master/graph/badge.svg)](https://codecov.io/gh/avallecam/epihelper?branch=master)
+[![R-CMD-check](https://github.com/avallecam/epihelper/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/avallecam/epihelper/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of epihelper is to provide a miscelanea of useful custom
@@ -42,15 +43,15 @@ library(epihelper)
 
 ### initial helpers
 
--   `adorn_ame`: adorn a
-    [`tabyl`](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#tabyl---a-better-version-of-table)
-    with totals on margins, percentages and N on values in only one
-    function!
+- `adorn_ame`: adorn a
+  [`tabyl`](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#tabyl---a-better-version-of-table)
+  with totals on margins, percentages and N on values in only one
+  function!
 
--   `print_inf`: make a quick(er) `print(n=Inf)`
+- `print_inf`: make a quick(er) `print(n=Inf)`
 
--   `read_lastfile`: read the last file in a folder (ideal for workflows
-    with daily inputs and updates)
+- `read_lastfile`: read the last file in a folder (ideal for workflows
+  with daily inputs and updates)
 
 ``` r
 example("adorn_ame")
@@ -59,16 +60,16 @@ example("print_inf")
 
 ### spatial data management
 
--   `read_gpx`: read GPX extension formats
+- `read_gpx`: read GPX extension formats
 
--   `st_coordinates_tidy`: a tidy alternative to `sf::st_coordinates`.
-    it retrieve coordinates within the original sf/data.frame object.
+- `st_coordinates_tidy`: a tidy alternative to `sf::st_coordinates`. it
+  retrieve coordinates within the original sf/data.frame object.
 
--   `sf_as_ppp`: integrates point geometry dataset and a boundary to
-    create a ppp for spatstat analysis. [clink here for more
-    information](https://github.com/r-spatial/sf/issues/1233).
+- `sf_as_ppp`: integrates point geometry dataset and a boundary to
+  create a ppp for spatstat analysis. [clink here for more
+  information](https://github.com/r-spatial/sf/issues/1233).
 
--   `tibble_as_raster`: transform a x,y,z tibble to a raster.
+- `tibble_as_raster`: transform a x,y,z tibble to a raster.
 
 ``` r
 example("st_coordinates_tidy")
@@ -76,12 +77,12 @@ example("st_coordinates_tidy")
 
 ### movement data management
 
--   `sum_range_h`: custom function to calculate amount of hours between
-    to reported times
+- `sum_range_h`: custom function to calculate amount of hours between to
+  reported times
 
--   `get_distance_m`: generates a distance output between two set of
-    points within a tibble and flexible with `dplyr::group_by` and
-    `purrr::pmap`
+- `get_distance_m`: generates a distance output between two set of
+  points within a tibble and flexible with `dplyr::group_by` and
+  `purrr::pmap`
 
 ``` r
 example("get_distance_m")
